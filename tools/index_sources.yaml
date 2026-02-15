@@ -36,7 +36,7 @@ indices:
       url: https://en.wikipedia.org/wiki/DAX
       table_title_regex: "Components"
       extract_company_info: true  # Set to true to fetch additional company details
-      language_fallbacks: ["de"]  
+      language_fallbacks: ["de"]
       columns:
         name: ["Company", "Name"]
         symbol: ["Ticker symbol", "Ticker", "Symbol"]
@@ -105,6 +105,23 @@ indices:
     source:
       type: wikipedia
       url: https://en.wikipedia.org/wiki/FTSE_100_Index
+      table_title_regex: "Constituents"
+      extract_company_info: true
+      columns:
+        name: ["Company", "Name"]
+        symbol: ["Ticker symbol", "Ticker", "Symbol"]
+        isin: ["ISIN"]
+        country: ["Country", "Headquarters", "Headquarters location"]
+        sector: ["FTSE industry classification benchmark sector"]
+      symbol_converter:
+        - pattern: "^(.+?)(?:\\.L)?$"
+          format: "{1}.L"
+    match:
+      by: symbol
+  - name: FTSE 250
+    source:
+      type: wikipedia
+      url: https://en.wikipedia.org/wiki/FTSE_250_Index
       table_title_regex: "Constituents"
       extract_company_info: true
       columns:
