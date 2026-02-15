@@ -36,7 +36,7 @@ indices:
       url: https://en.wikipedia.org/wiki/DAX
       table_title_regex: "Components"
       extract_company_info: true  # Set to true to fetch additional company details
-      language_fallbacks: ["de"]
+      language_fallbacks: ["de" ]
       columns:
         name: ["Company", "Name"]
         symbol: ["Ticker symbol", "Ticker", "Symbol"]
